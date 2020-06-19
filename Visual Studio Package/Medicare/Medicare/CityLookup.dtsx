@@ -1,0 +1,1498 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2020 8:20:15 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-1548S09"
+  DTS:CreatorName="DESKTOP-1548S09\User"
+  DTS:DTSID="{12CAF107-CD6C-4515-8201-F6F08C6B9DE4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.68"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CityLookup"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{F09BDD82-039F-4493-A024-6536119C98F4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CityLookup"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5BD59819-B6B6-4A93-9F4E-0651A12CC3DD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CityLookup"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CityLookup\Address_V1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Address_V1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Address_V1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CityLookup\Address_V1.Connections[OleDbConnection]"
+                  connectionManagerID="{CC3DF0BB-4FCF-41E6-AF63-00ECD2FFFAB3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-1548S09_SS2020.Medicare]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[ProviderAddressID]"
+                      cachedDataType="i8"
+                      cachedName="ProviderAddressID"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[ProviderAddressID]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[ProviderAddressID]" />
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StateCode"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[CountryCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CountryCode"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CountryCode]" />
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[ZipCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ZipCode"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[ZipCode]" />
+                    <inputColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].Columns[CityID]"
+                      cachedDataType="i8"
+                      cachedName="CityID"
+                      externalMetadataColumnId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[CityID]"
+                      lineageId="Package\CityLookup\City Lookup.Outputs[Lookup Match Output].Columns[CityID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[ProviderAddressID]"
+                      dataType="i8"
+                      name="ProviderAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input].ExternalColumns[CityID]"
+                      dataType="i8"
+                      name="CityID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CityLookup\Address_V1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CityLookup\Address_V1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\Address_V1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CityLookup\Address_V1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\Address_V1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CityLookup\City Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="City Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[City]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[City]) [refTable]
+where [refTable].[CityName] = ? and [refTable].[StateCode] = ? and [refTable].[CountryCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CityID" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CityName" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StateCode" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CountryCode" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CityName]};#{Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[StateCode]};#{Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CountryCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CityLookup\City Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{CC3DF0BB-4FCF-41E6-AF63-00ECD2FFFAB3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-1548S09_SS2020.Medicare]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CityLookup\City Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CityLookup\City Lookup.Inputs[Lookup Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CityName"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CityName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CityName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CityLookup\City Lookup.Inputs[Lookup Input].Columns[StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StateCode"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[StateCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StateCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CityLookup\City Lookup.Inputs[Lookup Input].Columns[CountryCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CountryCode"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CountryCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CountryCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CityLookup\City Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\CityLookup\City Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CityLookup\City Lookup.Outputs[Lookup Match Output].Columns[CityID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\CityLookup\City Lookup.Outputs[Lookup Match Output].Columns[CityID]"
+                      name="CityID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CityID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CityLookup\City Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\CityLookup\City Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\CityLookup\City Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ERR_MedicarePhysicianAndSupplier_Consolidated"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ERR_MedicarePhysicianAndSupplier_Consolidated]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Connections[OleDbConnection]"
+                  connectionManagerID="{CC3DF0BB-4FCF-41E6-AF63-00ECD2FFFAB3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-1548S09_SS2020.Medicare]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[CityName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StateCode"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[CountryCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CountryCode"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CountryCode]" />
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[ZipCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ZipCode"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCode]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[ZipCode]" />
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NPI]"
+                      dataType="i4"
+                      name="NPI" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[CredentialType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CredentialType" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[EntityType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="EntityType" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ZIPCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ProviderTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="70"
+                      name="ProviderTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[MedicareParticipationIndicator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="MedicareParticipationIndicator" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfHCPCS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfHCPCS" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfServices]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfServices" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfMedicareBeneficiaries]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfMedicareBeneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalSubmittedChargeAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="TotalSubmittedChargeAmount" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalMedicareAllowedAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="TotalMedicareAllowedAmount" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalMedicarePaymentAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="TotalMedicarePaymentAmount" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[DrugSupressIndicator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="DrugSupressIndicator" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfHCPCSAssociatedWithDrugServices]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfHCPCSAssociatedWithDrugServices" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfDrugServices]"
+                      dataType="i4"
+                      name="NumberOfDrugServices" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfMedicareBeneficiariesWithDrugServices]"
+                      dataType="i4"
+                      name="NumberOfMedicareBeneficiariesWithDrugServices" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalDrugSubmittedChargeAmount]"
+                      dataType="numeric"
+                      name="TotalDrugSubmittedChargeAmount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalDrugMedicareAllowedAmount]"
+                      dataType="numeric"
+                      name="TotalDrugMedicareAllowedAmount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalDrugMedicarePaymentAmount]"
+                      dataType="numeric"
+                      name="TotalDrugMedicarePaymentAmount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[MedicalSuppressIndicator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="MedicalSuppressIndicator" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfHCPCSAssociatedWithMedicalServices]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfHCPCSAssociatedWithMedicalServices" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberofMedical Services]"
+                      dataType="i4"
+                      name="NumberofMedical Services" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfMedicareBeneficiariesWithMedicalServices]"
+                      dataType="i4"
+                      name="NumberOfMedicareBeneficiariesWithMedicalServices" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalMedicalSubmittedChargeAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="TotalMedicalSubmittedChargeAmount" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotalMedicalMedicareAllowedAmount]"
+                      dataType="numeric"
+                      name="TotalMedicalMedicareAllowedAmount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[TotaMedicalMedicarePaymentAmount]"
+                      dataType="numeric"
+                      name="TotaMedicalMedicarePaymentAmount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[AverageAgeOfBeneficiaries]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="AverageAgeOfBeneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBeneficiaries_Age_65_To_74]"
+                      dataType="i4"
+                      name="NumberOfBeneficiaries_Age_65_To_74" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBeneficiaries_Age_75_ To_84]"
+                      dataType="i4"
+                      name="NumberOfBeneficiaries_Age_75_ To_84" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBeneficiaries_Age_ Greater_84]"
+                      dataType="i4"
+                      name="NumberOfBeneficiaries_Age_ Greater_84" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfFemaleBeneficiaries]"
+                      dataType="i4"
+                      name="NumberOfFemaleBeneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBlackOrAfricanAmerican_Beneficiaries]"
+                      dataType="i4"
+                      name="NumberOfBlackOrAfricanAmerican_Beneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfAsianPacificIslander_ Beneficiaries]"
+                      dataType="i4"
+                      name="NumberOfAsianPacificIslander_ Beneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfHispanic_Beneficiaries]"
+                      dataType="i4"
+                      name="NumberOfHispanic_Beneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfAmerican Indian_AlaskaNative_Beneficiaries]"
+                      dataType="i4"
+                      name="NumberOfAmerican Indian_AlaskaNative_Beneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBeneficiaries_WithRaceNotElsewhereClassified]"
+                      dataType="i4"
+                      name="NumberOfBeneficiaries_WithRaceNotElsewhereClassified" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBeneficiaries_WithMedicareOnlyEntitlement]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfBeneficiaries_WithMedicareOnlyEntitlement" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBeneficiaries_WithMedicare_MedicaidEntitlement]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfBeneficiaries_WithMedicare_MedicaidEntitlement" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithAtrialFibrillation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithAtrialFibrillation" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithAsthma]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithAsthma" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithCancer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithCancer" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_Beneficiaries IdentifiedWithHeartFailure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_Beneficiaries IdentifiedWithHeartFailure" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithChronicKidneyDisease]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithChronicKidneyDisease" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithChronicObstructivePulmonaryDisease]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithChronicObstructivePulmonaryDisease" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithDepression]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithDepression" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithDiabetes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithDiabetes" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithHyperlipidemia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithHyperlipidemia" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[BeneficiariesIdentifiedWithHypertension]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="BeneficiariesIdentifiedWithHypertension" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[BeneficiariesIdentifiedWithIschemicHeartDisease]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="BeneficiariesIdentifiedWithIschemicHeartDisease" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithOsteoporosis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithOsteoporosis" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithRheumatoidArthritis_ Osteoarthritis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithRheumatoidArthritis_ Osteoarthritis" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithSchizophreniaOtherPsychoticDisorders]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithSchizophreniaOtherPsychoticDisorders" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithStroke]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithStroke" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfBeneficiaries_AgeLess_ 65]"
+                      dataType="i4"
+                      name="NumberOfBeneficiaries_AgeLess_ 65" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfMaleBeneficiaries]"
+                      dataType="i4"
+                      name="NumberOfMaleBeneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfNon-HispanicWhite_Beneficiaries]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="NumberOfNon-HispanicWhite_Beneficiaries" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Percent_Of_BeneficiariesIdentifiedWithAlzheimersDisease_Or_Dementia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Percent_Of_BeneficiariesIdentifiedWithAlzheimersDisease_Or_Dementia" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[RecordedYear]"
+                      dataType="wstr"
+                      length="4"
+                      name="RecordedYear" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Number_Of_BeneficiariesIdentifiedWithAtrialFibrillation]"
+                      dataType="i4"
+                      name="Number_Of_BeneficiariesIdentifiedWithAtrialFibrillation" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Number_Of_BeneficiariesIdentifiedWithRheumatoidArthritis_Osteoarthritis]"
+                      dataType="i4"
+                      name="Number_Of_BeneficiariesIdentifiedWithRheumatoidArthritis_Osteoarthritis" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Number_Of_BeneficiariesIdentifiedWithChronicKidneyDisease]"
+                      dataType="i4"
+                      name="Number_Of_BeneficiariesIdentifiedWithChronicKidneyDisease" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Number_Of_BeneficiariesIdentifiedWithHeartFailure]"
+                      dataType="i4"
+                      name="Number_Of_BeneficiariesIdentifiedWithHeartFailure" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Number_Of_BeneficiariesIdentifiedWithCancer]"
+                      dataType="i4"
+                      name="Number_Of_BeneficiariesIdentifiedWithCancer" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[Number_Of_BeneficiariesIdentifiedWithDiabetes]"
+                      dataType="i4"
+                      name="Number_Of_BeneficiariesIdentifiedWithDiabetes" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[EnrollmentID]"
+                      dataType="i4"
+                      name="EnrollmentID" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[DMEPOSClaim_IND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="DMEPOSClaim_IND" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[HHAClaim_IND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="HHAClaim_IND" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ProviderTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProviderTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input].ExternalColumns[ProviderNameID]"
+                      dataType="i4"
+                      name="ProviderNameID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CityLookup\ProviderAddress"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ProviderAddress"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ProviderAddress]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CityLookup\ProviderAddress.Connections[OleDbConnection]"
+                  connectionManagerID="{CC3DF0BB-4FCF-41E6-AF63-00ECD2FFFAB3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-1548S09_SS2020.Medicare]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[ProviderAddressID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[ProviderAddressID]"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[ProviderAddressID]"
+                      name="ProviderAddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      length="255"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      name="AddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      length="255"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      name="AddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                      name="CountryCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      name="ZipCode"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[ProviderAddressID]"
+                      dataType="i8"
+                      name="ProviderAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ZipCode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ProviderAddressID]"
+                      dataType="i8"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ProviderAddressID]"
+                      name="ProviderAddressID" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[CityName]"
+                      name="CityName" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      name="StateCode" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                      name="CountryCode" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      name="ZipCode" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CityLookup.Paths[Lookup Error Output]"
+              endId="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated.Inputs[OLE DB Destination Input]"
+              name="Lookup Error Output"
+              startId="Package\CityLookup\City Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\CityLookup.Paths[Lookup Match Output]"
+              endId="Package\CityLookup\Address_V1.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\CityLookup\City Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\CityLookup.Paths[OLE DB Source Output]"
+              endId="Package\CityLookup\City Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\CityLookup\ProviderAddress.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\CityLookup"
+          TopLeft="228.571432463977,57.5058831594395" />
+        <AnnotationLayout
+          Text="Analysis of Providers through Yearly Medicare Beneficiary Coverage&#xA;Author: Team 8&#xA;Version: 1&#xA;Date: 22-04-2020&#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="384.8,104"
+          Id="8ccebcee-2ccf-47c5-8eb3-90771ac67142"
+          TopLeft="137.714288059546,135.200001896129" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CityLookup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\CityLookup\ProviderAddress"
+          TopLeft="156.571431237824,4.28235300123486" />
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\CityLookup\City Lookup"
+          TopLeft="170.285717185663,79.5294128800759" />
+        <EdgeLayout
+          Id="Package\CityLookup.Paths[OLE DB Source Output]"
+          TopLeft="235.428574211743,45.8823530012349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.647059878841"
+              Start="0,0"
+              End="0,26.147059878841">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.147059878841" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="311.2,41.6"
+          Id="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated"
+          TopLeft="394.28572100036,77.0823540222274" />
+        <EdgeLayout
+          Id="Package\CityLookup.Paths[Lookup Error Output]"
+          TopLeft="303.885717185663,99.1058834511516">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.4000038146975,0"
+              Start="0,0"
+              End="82.9000038146975,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="82.9000038146975,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.41638481140127,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\CityLookup\Address_V1"
+          TopLeft="154.742859205908,167.011767048159" />
+        <EdgeLayout
+          Id="Package\CityLookup.Paths[Lookup Match Output]"
+          TopLeft="237.085717185663,121.129412880076">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5428579797549,45.8823541680835"
+              Start="0,0"
+              End="-15.5428579797549,38.3823541680835">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.9411770840417" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9411770840417"
+                    Point2="0,22.9411770840417"
+                    Point3="-4,22.9411770840417" />
+                  <mssgle:LineSegment
+                    End="-11.5428579797549,22.9411770840417" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5428579797549,22.9411770840417"
+                    Point2="-15.5428579797549,22.9411770840417"
+                    Point3="-15.5428579797549,26.9411770840417" />
+                  <mssgle:LineSegment
+                    End="-15.5428579797549,38.3823541680835" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.9628157086275,27.9411770840417,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CityLookup\ProviderAddress">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CityLookup\ERR_MedicarePhysicianAndSupplier_Consolidated">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CityLookup\Address_V1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CityLookup\City Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[City]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
